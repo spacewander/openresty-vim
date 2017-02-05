@@ -1,0 +1,229 @@
+" Vim syntax file
+" Language: nginx.conf for openresty
+
+if exists("b:openresty_syntax_loaded")
+  finish
+end
+
+" lua-nginx-module
+syn match ngxDirectiveThirdParty '^\(
+    \access\|
+    \body_filter\|
+    \content\|
+    \header_filter\|
+    \init\|
+    \init_worker\|
+    \log\|
+    \rewrite\|
+    \set
+    \\)
+    \_by_lua\(_block\|_file\)*$'
+
+syn match ngxDirectiveThirdParty '^\(
+    \balancer\|
+    \ssl_certificate\|
+    \ssl_session_fetch\|
+    \ssl_session_store
+    \\)
+    \_by_lua\(_block\|_file\)$'
+
+syn keyword ngxDirectiveThirdParty lua_use_default_type
+syn keyword ngxDirectiveThirdParty lua_code_cache
+syn keyword ngxDirectiveThirdParty lua_regex_cache_max_entries
+syn keyword ngxDirectiveThirdParty lua_regex_match_limit
+syn keyword ngxDirectiveThirdParty lua_package_path
+syn keyword ngxDirectiveThirdParty lua_package_cpath
+syn keyword ngxDirectiveThirdParty lua_need_request_body
+syn keyword ngxDirectiveThirdParty lua_shared_dict
+syn keyword ngxDirectiveThirdParty lua_socket_connect_timeout
+syn keyword ngxDirectiveThirdParty lua_socket_send_timeout
+syn keyword ngxDirectiveThirdParty lua_socket_send_lowat
+syn keyword ngxDirectiveThirdParty lua_socket_read_timeout
+syn keyword ngxDirectiveThirdParty lua_socket_buffer_size
+syn keyword ngxDirectiveThirdParty lua_socket_pool_size
+syn keyword ngxDirectiveThirdParty lua_socket_keepalive_timeout
+syn keyword ngxDirectiveThirdParty lua_socket_log_errors
+syn keyword ngxDirectiveThirdParty lua_ssl_ciphers
+syn keyword ngxDirectiveThirdParty lua_ssl_crl
+syn keyword ngxDirectiveThirdParty lua_ssl_protocols
+syn keyword ngxDirectiveThirdParty lua_ssl_trusted_certificate
+syn keyword ngxDirectiveThirdParty lua_ssl_verify_depth
+syn keyword ngxDirectiveThirdParty lua_http10_buffering
+syn keyword ngxDirectiveThirdParty rewrite_by_lua_no_postpone
+syn keyword ngxDirectiveThirdParty access_by_lua_no_postpone
+syn keyword ngxDirectiveThirdParty lua_transform_underscores_in_response_headers
+syn keyword ngxDirectiveThirdParty lua_check_client_abort
+syn keyword ngxDirectiveThirdParty lua_max_pending_timers
+syn keyword ngxDirectiveThirdParty lua_max_running_timers
+
+" array-var-nginx-module
+syn keyword ngxDirectiveThirdParty array_split
+syn keyword ngxDirectiveThirdParty array_join
+syn keyword ngxDirectiveThirdParty array_map
+syn keyword ngxDirectiveThirdParty array_map_op
+
+" drizzle-nginx-module
+syn keyword ngxDirectiveThirdParty drizzle_server
+syn keyword ngxDirectiveThirdParty drizzle_keepalive
+syn keyword ngxDirectiveThirdParty drizzle_query
+syn keyword ngxDirectiveThirdParty drizzle_pass
+syn keyword ngxDirectiveThirdParty drizzle_connect_timeout
+syn keyword ngxDirectiveThirdParty drizzle_send_query_timeout
+syn keyword ngxDirectiveThirdParty drizzle_recv_cols_timeout
+syn keyword ngxDirectiveThirdParty drizzle_recv_rows_timeout
+syn keyword ngxDirectiveThirdParty drizzle_buffer_size
+syn keyword ngxDirectiveThirdParty drizzle_module_header
+syn keyword ngxDirectiveThirdParty drizzle_status
+
+" echo-nginx-module
+syn keyword ngxDirectiveThirdParty echo
+syn keyword ngxDirectiveThirdParty echo_duplicate
+syn keyword ngxDirectiveThirdParty echo_flush
+syn keyword ngxDirectiveThirdParty echo_sleep
+syn keyword ngxDirectiveThirdParty echo_blocking_sleep
+syn keyword ngxDirectiveThirdParty echo_reset_timer
+syn keyword ngxDirectiveThirdParty echo_read_request_body
+syn keyword ngxDirectiveThirdParty echo_location_async
+syn keyword ngxDirectiveThirdParty echo_location
+syn keyword ngxDirectiveThirdParty echo_subrequest_async
+syn keyword ngxDirectiveThirdParty echo_subrequest
+syn keyword ngxDirectiveThirdParty echo_foreach_split
+syn keyword ngxDirectiveThirdParty echo_end
+syn keyword ngxDirectiveThirdParty echo_request_body
+syn keyword ngxDirectiveThirdParty echo_exec
+syn keyword ngxDirectiveThirdParty echo_status
+syn keyword ngxDirectiveThirdParty echo_before_body
+syn keyword ngxDirectiveThirdParty echo_after_body
+
+" encrypted-session-nginx-module
+syn keyword ngxDirectiveThirdParty encrypted_session_key
+syn keyword ngxDirectiveThirdParty encrypted_session_iv
+syn keyword ngxDirectiveThirdParty encrypted_session_expires
+syn keyword ngxDirectiveThirdParty set_encrypt_session
+syn keyword ngxDirectiveThirdParty set_decrypt_session
+
+" headers-more-nginx-module
+syn keyword ngxDirectiveThirdParty more_set_headers
+syn keyword ngxDirectiveThirdParty more_clear_headers
+syn keyword ngxDirectiveThirdParty more_set_input_headers
+syn keyword ngxDirectiveThirdParty more_clear_input_headers
+
+" memc-nginx-module
+syn keyword ngxDirectiveThirdParty memc_pass
+syn keyword ngxDirectiveThirdParty memc_cmds_allowed
+syn keyword ngxDirectiveThirdParty memc_flags_to_last_modified
+syn keyword ngxDirectiveThirdParty memc_connect_timeout
+syn keyword ngxDirectiveThirdParty memc_send_timeout
+syn keyword ngxDirectiveThirdParty memc_read_timeout
+syn keyword ngxDirectiveThirdParty memc_buffer_size
+syn keyword ngxDirectiveThirdParty memc_ignore_client_abort
+
+" ngx_postgres
+syn keyword ngxDirectiveThirdParty postgres_server
+syn keyword ngxDirectiveThirdParty postgres_keepalive
+syn keyword ngxDirectiveThirdParty postgres_pass
+syn keyword ngxDirectiveThirdParty postgres_query
+syn keyword ngxDirectiveThirdParty postgres_rewrite
+syn keyword ngxDirectiveThirdParty postgres_output
+syn keyword ngxDirectiveThirdParty postgres_set
+syn keyword ngxDirectiveThirdParty postgres_escape
+syn keyword ngxDirectiveThirdParty postgres_connect_timeout
+syn keyword ngxDirectiveThirdParty postgres_result_timeout
+
+" replace-filter-nginx-module
+syn keyword ngxDirectiveThirdParty replace_filter
+syn keyword ngxDirectiveThirdParty replace_filter_types
+syn keyword ngxDirectiveThirdParty replace_filter_max_buffered_size
+syn keyword ngxDirectiveThirdParty replace_filter_last_modified
+syn keyword ngxDirectiveThirdParty replace_filter_skip
+
+" rds-csv-nginx-module
+syn keyword ngxDirectiveThirdParty rds_csv
+syn keyword ngxDirectiveThirdParty rds_csv_row_terminator
+syn keyword ngxDirectiveThirdParty rds_csv_field_separator
+syn keyword ngxDirectiveThirdParty rds_csv_field_name_header
+syn keyword ngxDirectiveThirdParty rds_csv_content_type
+syn keyword ngxDirectiveThirdParty rds_csv_buffer_size
+
+" rds-json-nginx-module
+syn keyword ngxDirectiveThirdParty rds_json
+syn keyword ngxDirectiveThirdParty rds_json_buffer_size
+syn keyword ngxDirectiveThirdParty rds_json_format
+syn keyword ngxDirectiveThirdParty rds_json_root
+syn keyword ngxDirectiveThirdParty rds_json_success_property
+syn keyword ngxDirectiveThirdParty rds_json_user_property
+syn keyword ngxDirectiveThirdParty rds_json_errcode_key
+syn keyword ngxDirectiveThirdParty rds_json_errstr_key
+syn keyword ngxDirectiveThirdParty rds_json_ret
+syn keyword ngxDirectiveThirdParty rds_json_content_type
+
+" redis2-nginx-module
+syn keyword ngxDirectiveThirdParty redis2_query
+syn keyword ngxDirectiveThirdParty redis2_raw_query
+syn keyword ngxDirectiveThirdParty redis2_raw_queries
+syn keyword ngxDirectiveThirdParty redis2_literal_raw_query
+syn keyword ngxDirectiveThirdParty redis2_pass
+syn keyword ngxDirectiveThirdParty redis2_connect_timeout
+syn keyword ngxDirectiveThirdParty redis2_send_timeout
+syn keyword ngxDirectiveThirdParty redis2_read_timeout
+syn keyword ngxDirectiveThirdParty redis2_buffer_size
+syn keyword ngxDirectiveThirdParty redis2_next_upstream
+
+" set-misc-nginx-module
+syn keyword ngxDirectiveThirdParty set_if_empty
+syn keyword ngxDirectiveThirdParty set_quote_sql_str
+syn keyword ngxDirectiveThirdParty set_quote_pgsql_str
+syn keyword ngxDirectiveThirdParty set_quote_json_str
+syn keyword ngxDirectiveThirdParty set_unescape_uri
+syn keyword ngxDirectiveThirdParty set_escape_uri
+syn keyword ngxDirectiveThirdParty set_hashed_upstream
+syn keyword ngxDirectiveThirdParty set_encode_base32
+syn keyword ngxDirectiveThirdParty set_base32_padding
+syn keyword ngxDirectiveThirdParty set_misc_base32_padding
+syn keyword ngxDirectiveThirdParty set_base32_alphabet
+syn keyword ngxDirectiveThirdParty set_decode_base32
+syn keyword ngxDirectiveThirdParty set_encode_base64
+syn keyword ngxDirectiveThirdParty set_decode_base64
+syn keyword ngxDirectiveThirdParty set_encode_hex
+syn keyword ngxDirectiveThirdParty set_decode_hex
+syn keyword ngxDirectiveThirdParty set_sha1
+syn keyword ngxDirectiveThirdParty set_md5
+syn keyword ngxDirectiveThirdParty set_hmac_sha1
+syn keyword ngxDirectiveThirdParty set_random
+syn keyword ngxDirectiveThirdParty set_secure_random_alphanum
+syn keyword ngxDirectiveThirdParty set_secure_random_lcalpha
+syn keyword ngxDirectiveThirdParty set_rotate
+syn keyword ngxDirectiveThirdParty set_local_today
+syn keyword ngxDirectiveThirdParty set_formatted_gmt_time
+syn keyword ngxDirectiveThirdParty set_formatted_local_time
+
+" srcache-nginx-module
+syn keyword ngxDirectiveThirdParty srcache_fetch
+syn keyword ngxDirectiveThirdParty srcache_fetch_skip
+syn keyword ngxDirectiveThirdParty srcache_store
+syn keyword ngxDirectiveThirdParty srcache_store_max_size
+syn keyword ngxDirectiveThirdParty srcache_store_skip
+syn keyword ngxDirectiveThirdParty srcache_store_statuses
+syn keyword ngxDirectiveThirdParty srcache_store_ranges
+syn keyword ngxDirectiveThirdParty srcache_header_buffer_size
+syn keyword ngxDirectiveThirdParty srcache_store_hide_header
+syn keyword ngxDirectiveThirdParty srcache_store_pass_header
+syn keyword ngxDirectiveThirdParty srcache_methods
+syn keyword ngxDirectiveThirdParty srcache_ignore_content_encoding
+syn keyword ngxDirectiveThirdParty srcache_request_cache_control
+syn keyword ngxDirectiveThirdParty srcache_response_cache_control
+syn keyword ngxDirectiveThirdParty srcache_store_no_store
+syn keyword ngxDirectiveThirdParty srcache_store_no_cache
+syn keyword ngxDirectiveThirdParty srcache_store_private
+syn keyword ngxDirectiveThirdParty srcache_default_expire
+syn keyword ngxDirectiveThirdParty srcache_max_expire
+
+" xss-nginx-module
+syn keyword ngxDirectiveThirdParty xss_get
+syn keyword ngxDirectiveThirdParty xss_callback_arg
+syn keyword ngxDirectiveThirdParty xss_override_status
+syn keyword ngxDirectiveThirdParty xss_check_status
+syn keyword ngxDirectiveThirdParty xss_input_types
+
+
+let b:openresty_syntax_loaded = 1
