@@ -6,7 +6,7 @@ if exists("b:openresty_syntax_loaded")
 end
 
 " lua-nginx-module
-syn match ngxDirectiveThirdParty '^\(
+syn match ngxDirectiveThirdParty '\(
     \access\|
     \body_filter\|
     \content\|
@@ -17,15 +17,15 @@ syn match ngxDirectiveThirdParty '^\(
     \rewrite\|
     \set
     \\)
-    \_by_lua\(_block\|_file\)*$'
+    \_by_lua\(_block\|_file\)*'
 
-syn match ngxDirectiveThirdParty '^\(
+syn match ngxDirectiveThirdParty '\(
     \balancer\|
     \ssl_certificate\|
     \ssl_session_fetch\|
     \ssl_session_store
     \\)
-    \_by_lua\(_block\|_file\)$'
+    \_by_lua\(_block\|_file\)'
 
 syn keyword ngxDirectiveThirdParty lua_use_default_type
 syn keyword ngxDirectiveThirdParty lua_code_cache
