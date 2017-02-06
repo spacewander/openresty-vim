@@ -9,10 +9,8 @@ setlocal iskeyword+=.
 setlocal iskeyword+=/
 setlocal iskeyword+=:
 
-syn match ngxVariable '\$\(\w\+\|{\w\+}\)'
-syn match ngxVariableBlock '\$\(\w\+\|{\w\+}\)' contained
 syn match ngxVariableString '\$\(\w\+\|{\w\+}\)' contained
-syn region ngxBlock start=+^+ end=+{+ skip=+\${+ contains=ngxComment,ngxDirectiveBlock,ngxVariableBlock,ngxString oneline
+syn region ngxBlock start=+^+ end=+{+ skip=+\${+ contains=ngxComment,ngxDirectiveBlock,ngxVariableBlock,ngxString,orBlock oneline
 syn region ngxString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+ contains=ngxVariableString
 syn match ngxComment ' *#.*$'
 
@@ -818,8 +816,6 @@ syn keyword ngxDirectiveThirdParty xss_output_type
 " highlight
 
 hi link ngxComment Comment
-hi link ngxVariable Identifier
-hi link ngxVariableBlock Identifier
 hi link ngxVariableString PreProc
 hi link ngxBlock Normal
 hi link ngxString String

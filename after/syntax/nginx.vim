@@ -6,26 +6,51 @@ if exists("b:openresty_syntax_loaded")
 end
 
 " lua-nginx-module
-syn match ngxDirectiveThirdParty '\(
-    \access\|
-    \body_filter\|
-    \content\|
-    \header_filter\|
-    \init\|
-    \init_worker\|
-    \log\|
-    \rewrite\|
-    \set
-    \\)
-    \_by_lua\(_block\|_file\)*'
+unlet! b:current_syntax
+let b:lua_version = 5
+let b:lua_subversion = 1
+syn include @LuaBlock syntax/lua.vim
+syn region orBlock start="\s*[a-z]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="}"he=s-1 keepend contains=orDirectiveBlock,@LuaBlock fold
 
-syn match ngxDirectiveThirdParty '\(
-    \balancer\|
-    \ssl_certificate\|
-    \ssl_session_fetch\|
-    \ssl_session_store
-    \\)
-    \_by_lua\(_block\|_file\)'
+" Should we mark it as DEPRECATED?
+" syn keyword ngxDirectiveDeprecated access_by_lua
+syn keyword ngxDirectiveThirdParty access_by_lua
+syn keyword ngxDirectiveThirdParty body_filter_by_lua
+syn keyword ngxDirectiveThirdParty content_by_lua
+syn keyword ngxDirectiveThirdParty header_filter_by_lua
+syn keyword ngxDirectiveThirdParty init_by_lua
+syn keyword ngxDirectiveThirdParty init_worker_by_lua
+syn keyword ngxDirectiveThirdParty log_by_lua
+syn keyword ngxDirectiveThirdParty rewrite_by_lua
+syn keyword ngxDirectiveThirdParty set_by_lua
+
+syn keyword ngxDirectiveThirdParty access_by_lua_file
+syn keyword ngxDirectiveThirdParty body_filter_by_lua_file
+syn keyword ngxDirectiveThirdParty content_by_lua_file
+syn keyword ngxDirectiveThirdParty header_filter_by_lua_file
+syn keyword ngxDirectiveThirdParty init_by_lua_file
+syn keyword ngxDirectiveThirdParty init_worker_by_lua_file
+syn keyword ngxDirectiveThirdParty log_by_lua_file
+syn keyword ngxDirectiveThirdParty rewrite_by_lua_file
+syn keyword ngxDirectiveThirdParty set_by_lua_file
+syn keyword ngxDirectiveThirdParty balancer_by_lua_file
+syn keyword ngxDirectiveThirdParty ssl_certificate_by_lua_file
+syn keyword ngxDirectiveThirdParty ssl_session_fetch_by_lua_file
+syn keyword ngxDirectiveThirdParty ssl_session_store_by_lua_file
+
+syn keyword orDirectiveBlock access_by_lua_block contained
+syn keyword orDirectiveBlock body_filter_by_lua_block contained
+syn keyword orDirectiveBlock content_by_lua_block contained
+syn keyword orDirectiveBlock header_filter_by_lua_block contained
+syn keyword orDirectiveBlock init_by_lua_block contained
+syn keyword orDirectiveBlock init_worker_by_lua_block contained
+syn keyword orDirectiveBlock log_by_lua_block contained
+syn keyword orDirectiveBlock rewrite_by_lua_block contained
+syn keyword orDirectiveBlock balancer_by_lua_block contained
+syn keyword orDirectiveBlock ssl_certificate_by_lua_block contained
+syn keyword orDirectiveBlock ssl_session_fetch_by_lua_block contained
+syn keyword orDirectiveBlock ssl_session_store_by_lua_block contained
+syn keyword orDirectiveBlock set_by_lua_block contained
 
 syn keyword ngxDirectiveThirdParty lua_use_default_type
 syn keyword ngxDirectiveThirdParty lua_code_cache
@@ -225,5 +250,8 @@ syn keyword ngxDirectiveThirdParty xss_override_status
 syn keyword ngxDirectiveThirdParty xss_check_status
 syn keyword ngxDirectiveThirdParty xss_input_types
 
+
+hi link orDirectiveBlock Statement
+hi link orBlock Statement
 
 let b:openresty_syntax_loaded = 1
