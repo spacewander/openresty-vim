@@ -2,7 +2,7 @@
 " Language: nginx.conf
 
 if exists("b:current_syntax")
-  finish
+    finish
 end
 
 setlocal iskeyword+=.
@@ -18,6 +18,7 @@ syn keyword ngxBoolean on
 syn keyword ngxBoolean off
 
 syn keyword ngxDirectiveBlock http         contained
+syn keyword ngxDirectiveBlock stream         contained
 syn keyword ngxDirectiveBlock mail         contained
 syn keyword ngxDirectiveBlock events       contained
 syn keyword ngxDirectiveBlock server       contained
@@ -61,6 +62,7 @@ syn keyword ngxDirectiveDeprecated optimize_server_names
 syn keyword ngxDirectiveDeprecated satisfy_any
 syn keyword ngxDirectiveDeprecated so_keepalive
 
+syn keyword ngxDirective absolute_redirect
 syn keyword ngxDirective accept_mutex
 syn keyword ngxDirective accept_mutex_delay
 syn keyword ngxDirective acceptex_read
@@ -70,6 +72,7 @@ syn keyword ngxDirective add_before_body
 syn keyword ngxDirective add_header
 syn keyword ngxDirective addition_types
 syn keyword ngxDirective aio
+syn keyword ngxDirective aio_write
 syn keyword ngxDirective alias
 syn keyword ngxDirective allow
 syn keyword ngxDirective ancient_browser
@@ -78,11 +81,15 @@ syn keyword ngxDirective auth_basic
 syn keyword ngxDirective auth_basic_user_file
 syn keyword ngxDirective auth_http
 syn keyword ngxDirective auth_http_header
+syn keyword ngxDirective auth_http_pass_client_cert
 syn keyword ngxDirective auth_http_timeout
+syn keyword ngxDirective auth_jwt
+syn keyword ngxDirective auth_jwt_key_file
 syn keyword ngxDirective auth_request
 syn keyword ngxDirective auth_request_set
 syn keyword ngxDirective autoindex
 syn keyword ngxDirective autoindex_exact_size
+syn keyword ngxDirective autoindex_format
 syn keyword ngxDirective autoindex_localtime
 syn keyword ngxDirective charset
 syn keyword ngxDirective charset_types
@@ -118,6 +125,8 @@ syn keyword ngxDirective error_log
 syn keyword ngxDirective etag
 syn keyword ngxDirective eventport_events
 syn keyword ngxDirective expires
+syn keyword ngxDirective f4f
+syn keyword ngxDirective f4f_buffer_size
 syn keyword ngxDirective fastcgi_bind
 syn keyword ngxDirective fastcgi_buffer_size
 syn keyword ngxDirective fastcgi_buffering
@@ -127,7 +136,9 @@ syn keyword ngxDirective fastcgi_cache
 syn keyword ngxDirective fastcgi_cache_bypass
 syn keyword ngxDirective fastcgi_cache_key
 syn keyword ngxDirective fastcgi_cache_lock
+syn keyword ngxDirective fastcgi_cache_lock_age
 syn keyword ngxDirective fastcgi_cache_lock_timeout
+syn keyword ngxDirective fastcgi_cache_max_range_offset
 syn keyword ngxDirective fastcgi_cache_methods
 syn keyword ngxDirective fastcgi_cache_min_uses
 syn keyword ngxDirective fastcgi_cache_path
@@ -143,6 +154,7 @@ syn keyword ngxDirective fastcgi_ignore_headers
 syn keyword ngxDirective fastcgi_index
 syn keyword ngxDirective fastcgi_intercept_errors
 syn keyword ngxDirective fastcgi_keep_conn
+syn keyword ngxDirective fastcgi_limit_rate
 syn keyword ngxDirective fastcgi_max_temp_file_size
 syn keyword ngxDirective fastcgi_next_upstream
 syn keyword ngxDirective fastcgi_next_upstream_timeout
@@ -153,6 +165,7 @@ syn keyword ngxDirective fastcgi_pass_header
 syn keyword ngxDirective fastcgi_pass_request_body
 syn keyword ngxDirective fastcgi_pass_request_headers
 syn keyword ngxDirective fastcgi_read_timeout
+syn keyword ngxDirective fastcgi_request_buffering
 syn keyword ngxDirective fastcgi_send_lowat
 syn keyword ngxDirective fastcgi_send_timeout
 syn keyword ngxDirective fastcgi_split_path_info
@@ -183,6 +196,23 @@ syn keyword ngxDirective gzip_types
 syn keyword ngxDirective gzip_vary
 syn keyword ngxDirective gzip_window
 syn keyword ngxDirective hash
+syn keyword ngxDirective health_check
+syn keyword ngxDirective health_check_timeout
+syn keyword ngxDirective hls
+syn keyword ngxDirective hls_buffers
+syn keyword ngxDirective hls_forward_args
+syn keyword ngxDirective hls_fragment
+syn keyword ngxDirective hls_mp4_buffer_size
+syn keyword ngxDirective hls_mp4_max_buffer_size
+syn keyword ngxDirective http2_body_preread_size
+syn keyword ngxDirective http2_chunk_size
+syn keyword ngxDirective http2_idle_timeout
+syn keyword ngxDirective http2_max_concurrent_streams
+syn keyword ngxDirective http2_max_field_size
+syn keyword ngxDirective http2_max_header_size
+syn keyword ngxDirective http2_max_requests
+syn keyword ngxDirective http2_recv_buffer_size
+syn keyword ngxDirective http2_recv_timeout
 syn keyword ngxDirective if_modified_since
 syn keyword ngxDirective ignore_invalid_headers
 syn keyword ngxDirective image_filter
@@ -191,12 +221,17 @@ syn keyword ngxDirective image_filter_interlace
 syn keyword ngxDirective image_filter_jpeg_quality
 syn keyword ngxDirective image_filter_sharpen
 syn keyword ngxDirective image_filter_transparency
+syn keyword ngxDirective image_filter_webp_quality
 syn keyword ngxDirective imap_auth
 syn keyword ngxDirective imap_capabilities
 syn keyword ngxDirective imap_client_buffer
 syn keyword ngxDirective index
 syn keyword ngxDirective iocp_threads
 syn keyword ngxDirective ip_hash
+syn keyword ngxDirective js_access
+syn keyword ngxDirective js_content
+syn keyword ngxDirective js_include
+syn keyword ngxDirective js_preread
 syn keyword ngxDirective keepalive
 syn keyword ngxDirective keepalive_disable
 syn keyword ngxDirective keepalive_requests
@@ -205,6 +240,7 @@ syn keyword ngxDirective kqueue_changes
 syn keyword ngxDirective kqueue_events
 syn keyword ngxDirective large_client_header_buffers
 syn keyword ngxDirective least_conn
+syn keyword ngxDirective least_time
 syn keyword ngxDirective limit_conn
 syn keyword ngxDirective limit_conn_log_level
 syn keyword ngxDirective limit_conn_status
@@ -218,6 +254,7 @@ syn keyword ngxDirective limit_req_zone
 syn keyword ngxDirective lingering_close
 syn keyword ngxDirective lingering_time
 syn keyword ngxDirective lingering_timeout
+syn keyword ngxDirective load_module
 syn keyword ngxDirective lock_file
 syn keyword ngxDirective log_format
 syn keyword ngxDirective log_not_found
@@ -225,10 +262,12 @@ syn keyword ngxDirective log_subrequest
 syn keyword ngxDirective map_hash_bucket_size
 syn keyword ngxDirective map_hash_max_size
 syn keyword ngxDirective master_process
+syn keyword ngxDirective match
 syn keyword ngxDirective max_ranges
 syn keyword ngxDirective memcached_bind
 syn keyword ngxDirective memcached_buffer_size
 syn keyword ngxDirective memcached_connect_timeout
+syn keyword ngxDirective memcached_force_ranges
 syn keyword ngxDirective memcached_gzip_flag
 syn keyword ngxDirective memcached_next_upstream
 syn keyword ngxDirective memcached_next_upstream_timeout
@@ -241,10 +280,13 @@ syn keyword ngxDirective modern_browser
 syn keyword ngxDirective modern_browser_value
 syn keyword ngxDirective mp4
 syn keyword ngxDirective mp4_buffer_size
+syn keyword ngxDirective mp4_limit_rate
+syn keyword ngxDirective mp4_limit_rate_after
 syn keyword ngxDirective mp4_max_buffer_size
 syn keyword ngxDirective msie_padding
 syn keyword ngxDirective msie_refresh
 syn keyword ngxDirective multi_accept
+syn keyword ngxDirective ntlm
 syn keyword ngxDirective open_file_cache
 syn keyword ngxDirective open_file_cache_errors
 syn keyword ngxDirective open_file_cache_events
@@ -265,6 +307,8 @@ syn keyword ngxDirective port_in_redirect
 syn keyword ngxDirective post_acceptex
 syn keyword ngxDirective postpone_gzipping
 syn keyword ngxDirective postpone_output
+syn keyword ngxDirective preread_buffer_size
+syn keyword ngxDirective preread_timeout
 syn keyword ngxDirective protocol
 syn keyword ngxDirective proxy
 syn keyword ngxDirective proxy_bind
@@ -275,9 +319,12 @@ syn keyword ngxDirective proxy_buffers
 syn keyword ngxDirective proxy_busy_buffers_size
 syn keyword ngxDirective proxy_cache
 syn keyword ngxDirective proxy_cache_bypass
+syn keyword ngxDirective proxy_cache_convert_head
 syn keyword ngxDirective proxy_cache_key
 syn keyword ngxDirective proxy_cache_lock
+syn keyword ngxDirective proxy_cache_lock_age
 syn keyword ngxDirective proxy_cache_lock_timeout
+syn keyword ngxDirective proxy_cache_max_range_offset
 syn keyword ngxDirective proxy_cache_methods
 syn keyword ngxDirective proxy_cache_min_uses
 syn keyword ngxDirective proxy_cache_path
@@ -287,6 +334,7 @@ syn keyword ngxDirective proxy_cache_valid
 syn keyword ngxDirective proxy_connect_timeout
 syn keyword ngxDirective proxy_cookie_domain
 syn keyword ngxDirective proxy_cookie_path
+syn keyword ngxDirective proxy_download_rate
 syn keyword ngxDirective proxy_force_ranges
 syn keyword ngxDirective proxy_headers_hash_bucket_size
 syn keyword ngxDirective proxy_headers_hash_max_size
@@ -295,6 +343,7 @@ syn keyword ngxDirective proxy_http_version
 syn keyword ngxDirective proxy_ignore_client_abort
 syn keyword ngxDirective proxy_ignore_headers
 syn keyword ngxDirective proxy_intercept_errors
+syn keyword ngxDirective proxy_limit_rate
 syn keyword ngxDirective proxy_max_temp_file_size
 syn keyword ngxDirective proxy_method
 syn keyword ngxDirective proxy_next_upstream
@@ -305,15 +354,23 @@ syn keyword ngxDirective proxy_pass_error_message
 syn keyword ngxDirective proxy_pass_header
 syn keyword ngxDirective proxy_pass_request_body
 syn keyword ngxDirective proxy_pass_request_headers
+syn keyword ngxDirective proxy_protocol
+syn keyword ngxDirective proxy_protocol_timeout
 syn keyword ngxDirective proxy_read_timeout
 syn keyword ngxDirective proxy_redirect
+syn keyword ngxDirective proxy_request_buffering
+syn keyword ngxDirective proxy_responses
 syn keyword ngxDirective proxy_send_lowat
 syn keyword ngxDirective proxy_send_timeout
 syn keyword ngxDirective proxy_set_body
 syn keyword ngxDirective proxy_set_header
+syn keyword ngxDirective proxy_ssl
+syn keyword ngxDirective proxy_ssl_certificate
+syn keyword ngxDirective proxy_ssl_certificate_key
 syn keyword ngxDirective proxy_ssl_ciphers
 syn keyword ngxDirective proxy_ssl_crl
 syn keyword ngxDirective proxy_ssl_name
+syn keyword ngxDirective proxy_ssl_password_file
 syn keyword ngxDirective proxy_ssl_protocols
 syn keyword ngxDirective proxy_ssl_server_name
 syn keyword ngxDirective proxy_ssl_session_reuse
@@ -325,6 +382,8 @@ syn keyword ngxDirective proxy_store_access
 syn keyword ngxDirective proxy_temp_file_write_size
 syn keyword ngxDirective proxy_temp_path
 syn keyword ngxDirective proxy_timeout
+syn keyword ngxDirective proxy_upload_rate
+syn keyword ngxDirective queue
 syn keyword ngxDirective random_index
 syn keyword ngxDirective read_ahead
 syn keyword ngxDirective real_ip_header
@@ -351,10 +410,13 @@ syn keyword ngxDirective scgi_cache
 syn keyword ngxDirective scgi_cache_bypass
 syn keyword ngxDirective scgi_cache_key
 syn keyword ngxDirective scgi_cache_lock
+syn keyword ngxDirective scgi_cache_lock_age
 syn keyword ngxDirective scgi_cache_lock_timeout
+syn keyword ngxDirective scgi_cache_max_range_offset
 syn keyword ngxDirective scgi_cache_methods
 syn keyword ngxDirective scgi_cache_min_uses
 syn keyword ngxDirective scgi_cache_path
+syn keyword ngxDirective scgi_cache_purge
 syn keyword ngxDirective scgi_cache_revalidate
 syn keyword ngxDirective scgi_cache_use_stale
 syn keyword ngxDirective scgi_cache_valid
@@ -364,6 +426,7 @@ syn keyword ngxDirective scgi_hide_header
 syn keyword ngxDirective scgi_ignore_client_abort
 syn keyword ngxDirective scgi_ignore_headers
 syn keyword ngxDirective scgi_intercept_errors
+syn keyword ngxDirective scgi_limit_rate
 syn keyword ngxDirective scgi_max_temp_file_size
 syn keyword ngxDirective scgi_next_upstream
 syn keyword ngxDirective scgi_next_upstream_timeout
@@ -374,6 +437,7 @@ syn keyword ngxDirective scgi_pass_header
 syn keyword ngxDirective scgi_pass_request_body
 syn keyword ngxDirective scgi_pass_request_headers
 syn keyword ngxDirective scgi_read_timeout
+syn keyword ngxDirective scgi_request_buffering
 syn keyword ngxDirective scgi_send_timeout
 syn keyword ngxDirective scgi_store
 syn keyword ngxDirective scgi_store_access
@@ -390,7 +454,11 @@ syn keyword ngxDirective server_name_in_redirect
 syn keyword ngxDirective server_names_hash_bucket_size
 syn keyword ngxDirective server_names_hash_max_size
 syn keyword ngxDirective server_tokens
+syn keyword ngxDirective session_log
+syn keyword ngxDirective session_log_format
+syn keyword ngxDirective session_log_zone
 syn keyword ngxDirective set_real_ip_from
+syn keyword ngxDirective slice
 syn keyword ngxDirective smtp_auth
 syn keyword ngxDirective smtp_capabilities
 syn keyword ngxDirective smtp_client_buffer
@@ -421,8 +489,10 @@ syn keyword ngxDirective ssl_crl
 syn keyword ngxDirective ssl_dhparam
 syn keyword ngxDirective ssl_ecdh_curve
 syn keyword ngxDirective ssl_engine
+syn keyword ngxDirective ssl_handshake_timeout
 syn keyword ngxDirective ssl_password_file
 syn keyword ngxDirective ssl_prefer_server_ciphers
+syn keyword ngxDirective ssl_preread
 syn keyword ngxDirective ssl_protocols
 syn keyword ngxDirective ssl_session_cache
 syn keyword ngxDirective ssl_session_ticket_key
@@ -436,6 +506,12 @@ syn keyword ngxDirective ssl_trusted_certificate
 syn keyword ngxDirective ssl_verify_client
 syn keyword ngxDirective ssl_verify_depth
 syn keyword ngxDirective starttls
+syn keyword ngxDirective state
+syn keyword ngxDirective status
+syn keyword ngxDirective status_format
+syn keyword ngxDirective status_zone
+syn keyword ngxDirective sticky
+syn keyword ngxDirective sticky_cookie_insert
 syn keyword ngxDirective stub_status
 syn keyword ngxDirective sub_filter
 syn keyword ngxDirective sub_filter_last_modified
@@ -443,6 +519,7 @@ syn keyword ngxDirective sub_filter_once
 syn keyword ngxDirective sub_filter_types
 syn keyword ngxDirective tcp_nodelay
 syn keyword ngxDirective tcp_nopush
+syn keyword ngxDirective thread_pool
 syn keyword ngxDirective thread_stack_size
 syn keyword ngxDirective timeout
 syn keyword ngxDirective timer_resolution
@@ -450,6 +527,7 @@ syn keyword ngxDirective types_hash_bucket_size
 syn keyword ngxDirective types_hash_max_size
 syn keyword ngxDirective underscores_in_headers
 syn keyword ngxDirective uninitialized_variable_warn
+syn keyword ngxDirective upstream_conf
 syn keyword ngxDirective use
 syn keyword ngxDirective user
 syn keyword ngxDirective userid
@@ -469,10 +547,13 @@ syn keyword ngxDirective uwsgi_cache
 syn keyword ngxDirective uwsgi_cache_bypass
 syn keyword ngxDirective uwsgi_cache_key
 syn keyword ngxDirective uwsgi_cache_lock
+syn keyword ngxDirective uwsgi_cache_lock_age
 syn keyword ngxDirective uwsgi_cache_lock_timeout
+syn keyword ngxDirective uwsgi_cache_max_range_offset
 syn keyword ngxDirective uwsgi_cache_methods
 syn keyword ngxDirective uwsgi_cache_min_uses
 syn keyword ngxDirective uwsgi_cache_path
+syn keyword ngxDirective uwsgi_cache_purge
 syn keyword ngxDirective uwsgi_cache_revalidate
 syn keyword ngxDirective uwsgi_cache_use_stale
 syn keyword ngxDirective uwsgi_cache_valid
@@ -482,6 +563,7 @@ syn keyword ngxDirective uwsgi_hide_header
 syn keyword ngxDirective uwsgi_ignore_client_abort
 syn keyword ngxDirective uwsgi_ignore_headers
 syn keyword ngxDirective uwsgi_intercept_errors
+syn keyword ngxDirective uwsgi_limit_rate
 syn keyword ngxDirective uwsgi_max_temp_file_size
 syn keyword ngxDirective uwsgi_modifier1
 syn keyword ngxDirective uwsgi_modifier2
@@ -494,10 +576,14 @@ syn keyword ngxDirective uwsgi_pass_header
 syn keyword ngxDirective uwsgi_pass_request_body
 syn keyword ngxDirective uwsgi_pass_request_headers
 syn keyword ngxDirective uwsgi_read_timeout
+syn keyword ngxDirective uwsgi_request_buffering
 syn keyword ngxDirective uwsgi_send_timeout
+syn keyword ngxDirective uwsgi_ssl_certificate
+syn keyword ngxDirective uwsgi_ssl_certificate_key
 syn keyword ngxDirective uwsgi_ssl_ciphers
 syn keyword ngxDirective uwsgi_ssl_crl
 syn keyword ngxDirective uwsgi_ssl_name
+syn keyword ngxDirective uwsgi_ssl_password_file
 syn keyword ngxDirective uwsgi_ssl_protocols
 syn keyword ngxDirective uwsgi_ssl_server_name
 syn keyword ngxDirective uwsgi_ssl_session_reuse
@@ -529,6 +615,8 @@ syn keyword ngxDirective xslt_param
 syn keyword ngxDirective xslt_string_param
 syn keyword ngxDirective xslt_stylesheet
 syn keyword ngxDirective xslt_types
+syn keyword ngxDirective zone
+
 
 " 3rd party module list:
 " http://wiki.nginx.org/Nginx3rdPartyModules
