@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language: nginx.conf for openresty
 
-if exists("b:openresty_syntax_loaded")
+if exists("b:current_syntax") && b:current_syntax == 'openresty'
   finish
 end
 
@@ -10,7 +10,12 @@ unlet! b:current_syntax
 let b:lua_version = 5
 let b:lua_subversion = 1
 syn include @LuaBlock syntax/lua.vim
-syn region orBlock start="\s*[a-z]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="^\s*}\s*$"he=s-1 keepend contains=orDirectiveBlock,@LuaBlock fold
+" Since skip_pattern doesn't support \n, here is a hack:
+" we require the start pattern and the end pattern to have the same
+" whitespace prefix, so that inner '}' line will not be considered as end pattern.
+syn region orBlock
+    \ start="\z(\s*\)[a-z]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="^\z1}\s*$"he=s-1
+    \ keepend contains=orDirectiveBlock,@LuaBlock fold
 
 " Should we mark it as DEPRECATED?
 " syn keyword ngxDirectiveDeprecated access_by_lua
@@ -255,4 +260,4 @@ hi link orDirective ngxDirectiveThirdParty
 hi link ngxLuaDirective orDirective
 hi link orDirectiveBlock Statement
 
-let b:openresty_syntax_loaded = 1
+let b:current_syntax = 'openresty'
