@@ -1,0 +1,31 @@
+*openresty-vim.txt*  A plugin for Nginx/OpenResty configuration
+
+INTRODUCTION                                    *openresty*
+
+This plugin offers Nginx/Openresty syntax highlight and directives completion.
+
+The syntax highlight is enabled once your file is detected as Nginx configuration.
+If Vim doesn't recognize the file type, you could add this to your `.vimrc`:
+
+```
+autocmd BufRead,BufNewFile pattern_matched_your_file(s) set filetype=nginx
+```
+
+For example, `autocmd BufRead,BufNewFile nginx_*.conf.tpl set filetype=nginx`.
+
+To complete the directives, type part of the word and then type `Ctrl+x Ctrl+o` to trigger it.
+If you are using [YouCompleteMe](https://github.com/Valloric/YouCompleteMe), set `let g:ycm_seed_identifiers_with_syntax = 1` in your `.vimrc`.
+
+KNOWN-ISSUE                                     *openresty-vim-known-issue*
+
+There is a limit to render Lua snippet inside `_by_lua_block` directives. You need to close the block with `}` in seperate line, and `}` should have
+the same indent with the `{`. It is a hack to distinguish from `}` of the inner Lua snippet.
+Anyway, if your configuration is in good format, the highlight should work smoothly.
+
+ABOUT                                           *openresty-vim-about*
+
+Grab the latest version or report a bug on GitHub:
+
+https://github.com/spacewander/openresty-vim
+
+ vim:tw=78:et:ft=help:norl:
