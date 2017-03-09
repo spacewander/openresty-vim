@@ -10,12 +10,16 @@ unlet! b:current_syntax
 let b:lua_version = 5
 let b:lua_subversion = 1
 syn include @LuaBlock syntax/lua.vim
+syn region orDirectiveBlockWithBracket
+    \ start="[a-z_]\+_by_lua_block" end="{"
+    \ contains=orDirectiveBlock contained
+
 " Since skip_pattern doesn't support \n, here is a hack:
 " we require the start pattern and the end pattern to have the same
 " whitespace prefix, so that inner '}' line will not be considered as end pattern.
 syn region orBlock
-    \ start="\z(\s*\)[a-z]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="^\z1}\s*$"he=s-1
-    \ keepend contains=orDirectiveBlock,@LuaBlock fold
+    \ start="\z(\s*\)[a-z_]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="^\z1}\s*$"he=s-1
+    \ keepend contains=orDirectiveBlockWithBracket,@LuaBlock fold
 
 " Should we mark it as DEPRECATED?
 " syn keyword ngxDirectiveDeprecated access_by_lua
