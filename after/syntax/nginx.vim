@@ -18,7 +18,7 @@ syn region orDirectiveBlockWithBracket
 " we require the start pattern and the end pattern to have the same
 " whitespace prefix, so that inner '}' line will not be considered as end pattern.
 syn region orBlock
-    \ start="\z(\s*\)[a-z_]\+_by_lua_block\(\s\|\n\)*{"hs=e+1 end="^\z1}\s*$"he=s-1
+    \ start="\z(\s*\)[a-z_]\+_by_lua_block\(\(\s\|\n\)\+\(\$\S\+\)*\(\s\|\n\)*\|\(\s\|\n\)*\){"hs=e+1 end="^\z1}\s*$"he=s-1
     \ keepend contains=orDirectiveBlockWithBracket,@LuaBlock fold
 
 " Should we mark it as DEPRECATED?
