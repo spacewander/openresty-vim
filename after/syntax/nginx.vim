@@ -90,6 +90,13 @@ syn keyword ngxLuaDirective lua_check_client_abort
 syn keyword ngxLuaDirective lua_max_pending_timers
 syn keyword ngxLuaDirective lua_max_running_timers
 
+" stream-lua-nginx-module
+syn keyword orDirective lua_resolver
+syn keyword orDirective lua_resolver_timeout
+syn keyword orDirective lua_lingering_close
+syn keyword orDirective lua_lingering_time
+syn keyword orDirective lua_lingering_timeout
+
 " array-var-nginx-module
 syn keyword orDirective array_split
 syn keyword orDirective array_join
@@ -128,6 +135,23 @@ syn keyword orDirective echo_exec
 syn keyword orDirective echo_status
 syn keyword orDirective echo_before_body
 syn keyword orDirective echo_after_body
+
+" stream-echo-nginx-module
+syn keyword orDirective echo
+syn keyword orDirective echo_duplicate
+syn keyword orDirective echo_flush_wait
+syn keyword orDirective echo_sleep
+syn keyword orDirective echo_send_timeout
+syn keyword orDirective echo_read_bytes
+syn keyword orDirective echo_read_line
+syn keyword orDirective echo_request_data
+syn keyword orDirective echo_discard_request
+syn keyword orDirective echo_read_buffer_size
+syn keyword orDirective echo_read_timeout
+syn keyword orDirective echo_client_error_log_level
+syn keyword orDirective echo_lingering_close
+syn keyword orDirective echo_lingering_time
+syn keyword orDirective echo_lingering_timeout
 
 " encrypted-session-nginx-module
 syn keyword orDirective encrypted_session_key
