@@ -18,7 +18,7 @@ If you are using [YouCompleteMe](https://github.com/Valloric/YouCompleteMe), set
 
 KNOWN-ISSUE                                     *openresty-vim-known-issue*
 
-There is a limit to render Lua snippet inside `_by_lua_block` directives. You need to close the block with `}` in seperate line, and `}` should have
+There is a limit to render Lua snippet inside `_by_lua_block` directives. You need to close the block with `}` in separate line, and `}` should have
 the same indent with the `{`. It is a hack to distinguish from `}` of the inner Lua snippet.
 Anyway, if your configuration is in good format, the highlight should work smoothly.
 

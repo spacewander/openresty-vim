@@ -843,7 +843,7 @@ syn keyword ngxDirectiveThirdParty contained echo_after_body
 " Encrypt and decrypt nginx variable values
 
 " Enhanced Memcached Module <https://github.com/bpaquet/ngx_http_enhanced_memcached_module>
-" This module is based on the standard Nginx Memcached module, with some additonal features
+" This module is based on the standard Nginx Memcached module, with some additional features
 syn keyword ngxDirectiveThirdParty contained enhanced_memcached_pass
 syn keyword ngxDirectiveThirdParty contained enhanced_memcached_hash_keys_with_md5
 syn keyword ngxDirectiveThirdParty contained enhanced_memcached_allow_put
@@ -1575,7 +1575,7 @@ syn keyword ngxDirectiveThirdParty contained set_sha1
 syn keyword ngxDirectiveThirdParty contained set_sha1_upper
 
 " Set Lang Module <https://github.com/simpl/ngx_http_set_lang>
-" Provides a variety of ways for setting a variable denoting the langauge that content should be returned in.
+" Provides a variety of ways for setting a variable denoting the language that content should be returned in.
 syn keyword ngxDirectiveThirdParty contained set_lang
 syn keyword ngxDirectiveThirdParty contained set_lang_method
 syn keyword ngxDirectiveThirdParty contained lang_cookie
@@ -1694,7 +1694,7 @@ syn keyword ngxDirectiveThirdParty contained lua_lingering_time
 syn keyword ngxDirectiveThirdParty contained lua_lingering_timeout
 
 " Stream Upsync Module <https://github.com/xiaokai-wang/nginx-stream-upsync-module>
-" Sync upstreams from consul or others, dynamiclly modify backend-servers attribute(weight, max_fails,...), needn't reload nginx.
+" Sync upstreams from consul or others, dynamically modify backend-servers attribute(weight, max_fails,...), needn't reload nginx.
 syn keyword ngxDirectiveThirdParty contained upsync
 syn keyword ngxDirectiveThirdParty contained upsync_dump_path
 syn keyword ngxDirectiveThirdParty contained upsync_lb
@@ -1734,7 +1734,7 @@ syn keyword ngxDirectiveThirdParty contained tnt_http_rest_methods
 syn keyword ngxDirectiveThirdParty contained tnt_pass_http_request
 syn keyword ngxDirectiveThirdParty contained tnt_pass_http_request_buffer_size
 syn keyword ngxDirectiveThirdParty contained tnt_method
-syn keyword ngxDirectiveThirdParty contained tnt_http_allowed_methods - experemental
+syn keyword ngxDirectiveThirdParty contained tnt_http_allowed_methods
 syn keyword ngxDirectiveThirdParty contained tnt_send_timeout
 syn keyword ngxDirectiveThirdParty contained tnt_read_timeout
 syn keyword ngxDirectiveThirdParty contained tnt_buffer_size
@@ -1857,7 +1857,7 @@ syn keyword ngxDirectiveDeprecated contained hash_again
 syn keyword ngxDirectiveThirdParty contained jdomain
 
 " Upsync Module <https://github.com/weibocom/nginx-upsync-module>
-" Sync upstreams from consul or others, dynamiclly modify backend-servers attribute(weight, max_fails,...), needn't reload nginx
+" Sync upstreams from consul or others, dynamically modify backend-servers attribute(weight, max_fails,...), needn't reload nginx
 syn keyword ngxDirectiveThirdParty contained upsync
 syn keyword ngxDirectiveThirdParty contained upsync_dump_path
 syn keyword ngxDirectiveThirdParty contained upsync_lb

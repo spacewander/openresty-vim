@@ -1,6 +1,6 @@
 ## A Vim plugin offers Nginx/Openresty syntax highlight and directives completion
 
-![exmaple](./example.png)
+![example](./example.png)
 
 This little plugin offers syntax highlight for Nginx configuration, with addition OpenResty enhancement.
 Moreover, it also offers syntax-based directives completion.
@@ -23,6 +23,6 @@ If you are using [YouCompleteMe](https://github.com/Valloric/YouCompleteMe), set
 
 #### Known issue
 
-There is a limit to render Lua snippet inside `_by_lua_block` directives. You need to close the block with `}` in seperate line, and `}` should have
+There is a limit to render Lua snippet inside `_by_lua_block` directives. You need to close the block with `}` in separate line, and `}` should have
 the same indent with the `{`. It is a hack to distinguish from `}` of the inner Lua snippet.
 Anyway, if your configuration is in good format, the highlight should work smoothly.
