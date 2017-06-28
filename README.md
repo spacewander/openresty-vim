@@ -2,8 +2,10 @@
 
 ![example](./example.png)
 
-This little plugin offers syntax highlight for Nginx configuration, with addition OpenResty enhancement.
-Moreover, it also offers syntax-based directives completion.
+This little plugin offers:
+1. syntax highlight for Nginx configuration, with addition OpenResty enhancement.
+1. syntax highlight for LuaJIT source file, with adddition OpenResty API highlight.
+1. syntax-based directives completion.
 
 #### How to use
 

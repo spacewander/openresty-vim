@@ -7,7 +7,8 @@ end
 
 if has("patch-7.4.1142")
     " except control characters, ";", "{", and "}"
-    syn iskeyword 33-58,60-122,124,126-255
+    " plus "(" for inline Lua code
+    syn iskeyword 33-39,41-58,60-122,124,126-255
 endif
 
 syn match ngxVariableString '\$\(\w\+\|{\w\+}\)' contained
