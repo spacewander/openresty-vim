@@ -71,7 +71,7 @@ syn match luaFunc   /\<ngx\.config\.prefix\>/
 syn match luaFunc   /\<ngx\.cookie_time\>/
 syn match luaFunc   /\<ngx\.crc32_long\>/
 syn match luaFunc   /\<ngx\.crc32_short\>/
-syn match luaFunc   /\<ngx\.ctx\>/
+syn match luaFunc   /\<ngx\.ctx\(\.\w\+\)\?\>/
 syn match luaFunc   /\<ngx\.decode_args\>/
 syn match luaFunc   /\<ngx\.decode_base64\>/
 syn match luaFunc   /\<ngx\.encode_args\>/
@@ -83,7 +83,7 @@ syn match luaFunc   /\<ngx\.exit\>/
 syn match luaFunc   /\<ngx\.flush\>/
 syn match luaFunc   /\<ngx\.get_phase\>/
 syn match luaFunc   /\<ngx\.headers_sent\>/
-syn match luaFunc   /\<ngx\.header\>/
+syn match luaFunc   /\<ngx\.header\(\.\w\+\)\?\>/
 syn match luaFunc   /\<ngx\.hmac_sha1\>/
 syn match luaFunc   /\<ngx\.http_time\>/
 syn match luaFunc   /\<ngx\.is_subrequest\>/
@@ -149,7 +149,7 @@ syn match luaFunc   /\<ngx\.today\>/
 syn match luaFunc   /\<ngx\.unescape_uri\>/
 syn match luaFunc   /\<ngx\.update_time\>/
 syn match luaFunc   /\<ngx\.utctime\>/
-syn match luaFunc   /\<ngx\.var\>/
+syn match luaFunc   /\<ngx\.var\.\w\+\>/
 syn match luaFunc   /\<ngx\.worker\.count\>/
 syn match luaFunc   /\<ngx\.worker\.exiting\>/
 syn match luaFunc   /\<ngx\.worker\.id\>/
