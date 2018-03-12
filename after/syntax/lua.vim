@@ -16,9 +16,12 @@ syn keyword luaStatement goto
 syn match luaLabel  "::\I\i*::"
 syn match luaFunc   /\<debug\.upvalueid\>/
 syn match luaFunc   /\<debug\.upvaluejoin\>/
+syn match luaFunc   /\<debug\.getuservalue\>/
+syn match luaFunc   /\<debug\.setuservalue\>/
 syn match luaFunc   /\<package\.searchpath\>/
 syn match luaFunc   /\<table\.pack\>/
 syn match luaFunc   /\<table\.unpack\>/
+syn match luaFunc   /\<rawlen\>/
 
 " Lua5.3 syntax in LuaJIT
 syn match luaFunc   /\<table\.move\>/
@@ -60,6 +63,7 @@ syn match luaFunc   /\<table\.new\>/
 syn match luaConstant   /\<ffi\.arch\>/
 syn match luaConstant   /\<ffi\.os\>/
 syn match luaConstant   /\<jit\.arch\>/
+syn match luaConstant   /\<jit\.off\>/
 syn match luaConstant   /\<jit\.os\>/
 syn match luaConstant   /\<jit\.version\>/
 syn match luaConstant   /\<jit\.version_num\>/
@@ -201,6 +205,7 @@ syn match luaConstant   /\<ngx\.HTTP_MOVED_TEMPORARILY\>/
 syn match luaConstant   /\<ngx\.HTTP_SEE_OTHER\>/
 syn match luaConstant   /\<ngx\.HTTP_NOT_MODIFIED\>/
 syn match luaConstant   /\<ngx\.HTTP_TEMPORARY_REDIRECT\>/
+syn match luaConstant   /\<ngx\.HTTP_PERMANENT_REDIRECT\>/
 syn match luaConstant   /\<ngx\.HTTP_BAD_REQUEST\>/
 syn match luaConstant   /\<ngx\.HTTP_UNAUTHORIZED\>/
 syn match luaConstant   /\<ngx\.HTTP_PAYMENT_REQUIRED\>/

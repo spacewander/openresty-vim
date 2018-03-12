@@ -77,6 +77,7 @@ syn keyword ngxLuaDirective lua_socket_buffer_size
 syn keyword ngxLuaDirective lua_socket_pool_size
 syn keyword ngxLuaDirective lua_socket_keepalive_timeout
 syn keyword ngxLuaDirective lua_socket_log_errors
+syn keyword ngxLuaDirective lua_capture_error_log
 syn keyword ngxLuaDirective lua_ssl_ciphers
 syn keyword ngxLuaDirective lua_ssl_crl
 syn keyword ngxLuaDirective lua_ssl_protocols
