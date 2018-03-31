@@ -97,6 +97,8 @@ syn keyword orDirective lua_resolver_timeout
 syn keyword orDirective lua_lingering_close
 syn keyword orDirective lua_lingering_time
 syn keyword orDirective lua_lingering_timeout
+syn keyword orDirective lua_add_variable
+syn keyword orDirective preread_by_lua_no_postpone
 
 " array-var-nginx-module
 syn keyword orDirective array_split

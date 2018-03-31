@@ -11,6 +11,9 @@ end
 " let g:lua_version = 5
 " let g:lua_subversion = 1
 
+" LuaJIT cdata number, \d+LL for int64_t and \d+ULL for uint64_t
+syn match luaNumber "\<\d\+U*LL\>"
+
 " Lua5.2 syntax in LuaJIT
 syn keyword luaStatement goto
 syn match luaLabel  "::\I\i*::"
@@ -147,6 +150,7 @@ syn match luaFunc   /\<ngx\.thread\.spawn\>/
 syn match luaFunc   /\<ngx\.thread\.wait\>/
 syn match luaFunc   /\<ngx\.time\>/
 syn match luaFunc   /\<ngx\.timer\.at\>/
+syn match luaFunc   /\<ngx\.timer\.every\>/
 syn match luaFunc   /\<ngx\.timer\.pending_count\>/
 syn match luaFunc   /\<ngx\.timer\.running_count\>/
 syn match luaFunc   /\<ngx\.today\>/
