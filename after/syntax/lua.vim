@@ -72,6 +72,9 @@ syn match luaConstant   /\<jit\.version\>/
 syn match luaConstant   /\<jit\.version_num\>/
 syn match luaNamespace   /\<ffi\.C\>/
 
+" OpenResty LuaJIT only syntax
+syn match luaFunc   /\<table\.clone\>/
+
 " OpenResty API
 syn match luaFunc   /\<ngx\.config\.nginx_configure\>/
 syn match luaFunc   /\<ngx\.config\.prefix\>/
