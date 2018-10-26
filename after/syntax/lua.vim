@@ -66,7 +66,6 @@ syn match luaFunc   /\<table\.new\>/
 syn match luaConstant   /\<ffi\.arch\>/
 syn match luaConstant   /\<ffi\.os\>/
 syn match luaConstant   /\<jit\.arch\>/
-syn match luaConstant   /\<jit\.off\>/
 syn match luaConstant   /\<jit\.os\>/
 syn match luaConstant   /\<jit\.version\>/
 syn match luaConstant   /\<jit\.version_num\>/
