@@ -73,6 +73,10 @@ syn match luaNamespace   /\<ffi\.C\>/
 
 " OpenResty LuaJIT only syntax
 syn match luaFunc   /\<table\.clone\>/
+syn match luaFunc   /\<table\.isarray\>/
+syn match luaFunc   /\<table\.isempty\>/
+syn match luaFunc   /\<table\.nkeys\>/
+syn match luaFunc   /\<thread\.exdata\>/
 
 " OpenResty API
 syn match luaFunc   /\<ngx\.config\.nginx_configure\>/
