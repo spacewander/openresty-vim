@@ -91,6 +91,7 @@ syn keyword ngxLuaDirective lua_check_client_abort
 syn keyword ngxLuaDirective lua_max_pending_timers
 syn keyword ngxLuaDirective lua_max_running_timers
 syn keyword ngxLuaDirective lua_sa_restart
+syn keyword ngxLuaDirective lua_load_resty_core
 
 " stream-lua-nginx-module
 syn keyword orDirective lua_resolver
