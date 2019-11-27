@@ -7,6 +7,10 @@ This little plugin offers:
 1. syntax highlight for LuaJIT source file, with adddition OpenResty API highlight.
 1. syntax-based directives completion.
 
+#### Support version
+
+This plugin supports OpenResty v1.15.8.2.
+
 #### How to use
 
 First of all, install this plugin with your favorite plugin manager.
