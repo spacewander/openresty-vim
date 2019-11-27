@@ -60,6 +60,7 @@ syn match luaFunc   /\<ffi\.typeof\>/
 syn match luaFunc   /\<jit\.flush\>/
 syn match luaFunc   /\<jit\.off\>/
 syn match luaFunc   /\<jit\.on\>/
+syn match luaFunc   /\<jit\.prngstate\>/
 syn match luaFunc   /\<jit\.status\>/
 syn match luaFunc   /\<table\.clear\>/
 syn match luaFunc   /\<table\.new\>/
