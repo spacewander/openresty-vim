@@ -135,6 +135,7 @@ syn match luaFunc   /\<ngx\.req\.raw_header\>/
 syn match luaFunc   /\<ngx\.req\.read_body\>/
 syn match luaFunc   /\<ngx\.req\.set_body_data\>/
 syn match luaFunc   /\<ngx\.req\.set_body_file\>/
+syn match luaFunc   /\<ngx\.req\.add_header\>/
 syn match luaFunc   /\<ngx\.req\.set_header\>/
 syn match luaFunc   /\<ngx\.req\.set_method\>/
 syn match luaFunc   /\<ngx\.req\.set_uri\>/
