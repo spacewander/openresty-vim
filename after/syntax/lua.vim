@@ -85,7 +85,9 @@ syn match luaFunc   /\<ngx\.config\.prefix\>/
 syn match luaFunc   /\<ngx\.cookie_time\>/
 syn match luaFunc   /\<ngx\.crc32_long\>/
 syn match luaFunc   /\<ngx\.crc32_short\>/
+syn match luaFunc   /\<ngx\.arg\(\[\d\+\]\)\?\>/
 syn match luaFunc   /\<ngx\.ctx\(\.\w\+\)\?\>/
+syn match luaFunc   /\<ngx\.header/
 syn match luaFunc   /\<ngx\.decode_args\>/
 syn match luaFunc   /\<ngx\.decode_base64\>/
 syn match luaFunc   /\<ngx\.encode_args\>/
