@@ -94,15 +94,16 @@ syn keyword ngxLuaDirective lua_max_pending_timers
 syn keyword ngxLuaDirective lua_max_running_timers
 syn keyword ngxLuaDirective lua_sa_restart
 syn keyword ngxLuaDirective lua_load_resty_core
+syn keyword ngxLuaDirective lua_ssl_conf_command
 
 " stream-lua-nginx-module
-syn keyword orDirective lua_resolver
-syn keyword orDirective lua_resolver_timeout
-syn keyword orDirective lua_lingering_close
-syn keyword orDirective lua_lingering_time
-syn keyword orDirective lua_lingering_timeout
-syn keyword orDirective lua_add_variable
-syn keyword orDirective preread_by_lua_no_postpone
+syn keyword ngxLuaDirective lua_resolver
+syn keyword ngxLuaDirective lua_resolver_timeout
+syn keyword ngxLuaDirective lua_lingering_close
+syn keyword ngxLuaDirective lua_lingering_time
+syn keyword ngxLuaDirective lua_lingering_timeout
+syn keyword ngxLuaDirective lua_add_variable
+syn keyword ngxLuaDirective preread_by_lua_no_postpone
 
 " array-var-nginx-module
 syn keyword orDirective array_split
