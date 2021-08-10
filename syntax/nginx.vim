@@ -119,6 +119,7 @@ syn keyword ngxDirective auth_jwt_header_set
 syn keyword ngxDirective auth_jwt_key_file
 syn keyword ngxDirective auth_jwt_key_request
 syn keyword ngxDirective auth_jwt_leeway
+syn keyword ngxDirective auth_jwt_type
 syn keyword ngxDirective auth_request
 syn keyword ngxDirective auth_request_set
 syn keyword ngxDirective autoindex
@@ -235,6 +236,7 @@ syn keyword ngxDirective grpc_socket_keepalive
 syn keyword ngxDirective grpc_ssl_certificate
 syn keyword ngxDirective grpc_ssl_certificate_key
 syn keyword ngxDirective grpc_ssl_ciphers
+syn keyword ngxDirective grpc_ssl_conf_command
 syn keyword ngxDirective grpc_ssl_crl
 syn keyword ngxDirective grpc_ssl_name
 syn keyword ngxDirective grpc_ssl_password_file
@@ -298,16 +300,20 @@ syn keyword ngxDirective index
 syn keyword ngxDirective iocp_threads
 syn keyword ngxDirective ip_hash
 syn keyword ngxDirective js_access
+syn keyword ngxDirective js_body_filter
 syn keyword ngxDirective js_content
 syn keyword ngxDirective js_filter
+syn keyword ngxDirective js_header_filter
 syn keyword ngxDirective js_import
 syn keyword ngxDirective js_include
 syn keyword ngxDirective js_path
 syn keyword ngxDirective js_preread
 syn keyword ngxDirective js_set
+syn keyword ngxDirective js_var
 syn keyword ngxDirective keepalive
 syn keyword ngxDirective keepalive_disable
 syn keyword ngxDirective keepalive_requests
+syn keyword ngxDirective keepalive_time
 syn keyword ngxDirective keepalive_timeout
 syn keyword ngxDirective keyval
 syn keyword ngxDirective keyval_zone
@@ -339,6 +345,7 @@ syn keyword ngxDirective log_subrequest
 syn keyword ngxDirective map_hash_bucket_size
 syn keyword ngxDirective map_hash_max_size
 syn keyword ngxDirective master_process
+syn keyword ngxDirective max_errors
 syn keyword ngxDirective max_ranges
 syn keyword ngxDirective memcached_bind
 syn keyword ngxDirective memcached_buffer_size
@@ -414,6 +421,7 @@ syn keyword ngxDirective proxy_cache_use_stale
 syn keyword ngxDirective proxy_cache_valid
 syn keyword ngxDirective proxy_connect_timeout
 syn keyword ngxDirective proxy_cookie_domain
+syn keyword ngxDirective proxy_cookie_flags
 syn keyword ngxDirective proxy_cookie_path
 syn keyword ngxDirective proxy_download_rate
 syn keyword ngxDirective proxy_force_ranges
@@ -447,11 +455,13 @@ syn keyword ngxDirective proxy_send_timeout
 syn keyword ngxDirective proxy_session_drop
 syn keyword ngxDirective proxy_set_body
 syn keyword ngxDirective proxy_set_header
+syn keyword ngxDirective proxy_smtp_auth
 syn keyword ngxDirective proxy_socket_keepalive
 syn keyword ngxDirective proxy_ssl
 syn keyword ngxDirective proxy_ssl_certificate
 syn keyword ngxDirective proxy_ssl_certificate_key
 syn keyword ngxDirective proxy_ssl_ciphers
+syn keyword ngxDirective proxy_ssl_conf_command
 syn keyword ngxDirective proxy_ssl_crl
 syn keyword ngxDirective proxy_ssl_name
 syn keyword ngxDirective proxy_ssl_password_file
@@ -559,6 +569,7 @@ syn keyword ngxDirective ssl_certificate
 syn keyword ngxDirective ssl_certificate_key
 syn keyword ngxDirective ssl_ciphers
 syn keyword ngxDirective ssl_client_certificate
+syn keyword ngxDirective ssl_conf_command
 syn keyword ngxDirective ssl_crl
 syn keyword ngxDirective ssl_dhparam
 syn keyword ngxDirective ssl_early_data
@@ -572,6 +583,7 @@ syn keyword ngxDirective ssl_password_file
 syn keyword ngxDirective ssl_prefer_server_ciphers
 syn keyword ngxDirective ssl_preread
 syn keyword ngxDirective ssl_protocols
+syn keyword ngxDirective ssl_reject_handshake
 syn keyword ngxDirective ssl_session_cache
 syn keyword ngxDirective ssl_session_ticket_key
 syn keyword ngxDirective ssl_session_tickets
@@ -610,6 +622,7 @@ syn keyword ngxDirective user
 syn keyword ngxDirective userid
 syn keyword ngxDirective userid_domain
 syn keyword ngxDirective userid_expires
+syn keyword ngxDirective userid_flags
 syn keyword ngxDirective userid_mark
 syn keyword ngxDirective userid_name
 syn keyword ngxDirective userid_p3p
@@ -660,6 +673,7 @@ syn keyword ngxDirective uwsgi_socket_keepalive
 syn keyword ngxDirective uwsgi_ssl_certificate
 syn keyword ngxDirective uwsgi_ssl_certificate_key
 syn keyword ngxDirective uwsgi_ssl_ciphers
+syn keyword ngxDirective uwsgi_ssl_conf_command
 syn keyword ngxDirective uwsgi_ssl_crl
 syn keyword ngxDirective uwsgi_ssl_name
 syn keyword ngxDirective uwsgi_ssl_password_file
@@ -705,6 +719,7 @@ syn keyword ngxDirective zone_sync_ssl
 syn keyword ngxDirective zone_sync_ssl_certificate
 syn keyword ngxDirective zone_sync_ssl_certificate_key
 syn keyword ngxDirective zone_sync_ssl_ciphers
+syn keyword ngxDirective zone_sync_ssl_conf_command
 syn keyword ngxDirective zone_sync_ssl_crl
 syn keyword ngxDirective zone_sync_ssl_name
 syn keyword ngxDirective zone_sync_ssl_password_file
@@ -1071,6 +1086,8 @@ syn keyword ngxDirectiveThirdParty contained nchan_subscriber_compound_etag_mess
 syn keyword ngxDirectiveThirdParty contained nchan_subscribe_request
 syn keyword ngxDirectiveThirdParty contained nchan_subscriber_first_message
 syn keyword ngxDirectiveThirdParty contained nchan_subscriber_http_raw_stream_separator
+syn keyword ngxDirectiveThirdParty contained nchan_subscriber_info
+syn keyword ngxDirectiveThirdParty contained nchan_subscriber_info_string
 syn keyword ngxDirectiveThirdParty contained nchan_subscriber_last_message_id
 syn keyword ngxDirectiveThirdParty contained nchan_subscriber_location
 syn keyword ngxDirectiveThirdParty contained nchan_subscriber_message_id_custom_etag_header
@@ -1343,10 +1360,30 @@ syn keyword ngxDirectiveThirdParty contained shib_request_use_headers
 
 " IP2Location Nginx
 " https://github.com/ip2location/ip2location-nginx
-syn keyword ngxDirectiveThirdParty contained ip2location
-syn keyword ngxDirectiveThirdParty contained ip2location_access_type
+syn keyword ngxDirectiveThirdParty contained ip2location_addresstype
+syn keyword ngxDirectiveThirdParty contained ip2location_areacode
+syn keyword ngxDirectiveThirdParty contained ip2location_category
+syn keyword ngxDirectiveThirdParty contained ip2location_city
+syn keyword ngxDirectiveThirdParty contained ip2location_country_long
+syn keyword ngxDirectiveThirdParty contained ip2location_country_short
+syn keyword ngxDirectiveThirdParty contained ip2location_domain
+syn keyword ngxDirectiveThirdParty contained ip2location_elevation
+syn keyword ngxDirectiveThirdParty contained ip2location_iddcode
+syn keyword ngxDirectiveThirdParty contained ip2location_isp
+syn keyword ngxDirectiveThirdParty contained ip2location_latitude
+syn keyword ngxDirectiveThirdParty contained ip2location_longitude
+syn keyword ngxDirectiveThirdParty contained ip2location_mcc
+syn keyword ngxDirectiveThirdParty contained ip2location_mnc
+syn keyword ngxDirectiveThirdParty contained ip2location_mobilebrand
+syn keyword ngxDirectiveThirdParty contained ip2location_netspeed
 syn keyword ngxDirectiveThirdParty contained ip2location_proxy
 syn keyword ngxDirectiveThirdParty contained ip2location_proxy_recursive
+syn keyword ngxDirectiveThirdParty contained ip2location_region
+syn keyword ngxDirectiveThirdParty contained ip2location_timezone
+syn keyword ngxDirectiveThirdParty contained ip2location_usagetype
+syn keyword ngxDirectiveThirdParty contained ip2location_weatherstationcode
+syn keyword ngxDirectiveThirdParty contained ip2location_weatherstationname
+syn keyword ngxDirectiveThirdParty contained ip2location_zipcode
 
 " Nginx Video Thumb Extractor Module
 " https://github.com/wandenberg/nginx-video-thumbextractor-module
@@ -1502,8 +1539,6 @@ syn keyword ngxDirectiveThirdParty contained types_filter_use_default
 
 " IP2Proxy module for Nginx
 " https://github.com/ip2location/ip2proxy-nginx
-syn keyword ngxDirectiveThirdParty contained ip2proxy
-syn keyword ngxDirectiveThirdParty contained ip2proxy_access_type
 syn keyword ngxDirectiveThirdParty contained ip2proxy_as
 syn keyword ngxDirectiveThirdParty contained ip2proxy_asn
 syn keyword ngxDirectiveThirdParty contained ip2proxy_city
@@ -1511,12 +1546,15 @@ syn keyword ngxDirectiveThirdParty contained ip2proxy_country_long
 syn keyword ngxDirectiveThirdParty contained ip2proxy_country_short
 syn keyword ngxDirectiveThirdParty contained ip2proxy_database
 syn keyword ngxDirectiveThirdParty contained ip2proxy_domain
-syn keyword ngxDirectiveThirdParty contained ip2proxy_is_proxy
 syn keyword ngxDirectiveThirdParty contained ip2proxy_isp
+syn keyword ngxDirectiveThirdParty contained ip2proxy_is_proxy
 syn keyword ngxDirectiveThirdParty contained ip2proxy_last_seen
+syn keyword ngxDirectiveThirdParty contained ip2proxy_provider
+syn keyword ngxDirectiveThirdParty contained ip2proxy_proxy
+syn keyword ngxDirectiveThirdParty contained ip2proxy_proxy_recursive
 syn keyword ngxDirectiveThirdParty contained ip2proxy_proxy_type
 syn keyword ngxDirectiveThirdParty contained ip2proxy_region
-syn keyword ngxDirectiveThirdParty contained ip2proxy_reverse_proxy
+syn keyword ngxDirectiveThirdParty contained ip2proxy_threat
 syn keyword ngxDirectiveThirdParty contained ip2proxy_usage_type
 
 " Nginx module for retrieving user attributes and groups from SSSD
@@ -1756,6 +1794,7 @@ syn keyword ngxDirectiveThirdParty contained testcookie_refresh_encrypt_cookie_i
 syn keyword ngxDirectiveThirdParty contained testcookie_refresh_encrypt_cookie_key
 syn keyword ngxDirectiveThirdParty contained testcookie_refresh_status
 syn keyword ngxDirectiveThirdParty contained testcookie_refresh_template
+syn keyword ngxDirectiveThirdParty contained testcookie_samesite
 syn keyword ngxDirectiveThirdParty contained testcookie_secret
 syn keyword ngxDirectiveThirdParty contained testcookie_secure_flag
 syn keyword ngxDirectiveThirdParty contained testcookie_session
