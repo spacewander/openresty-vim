@@ -44,6 +44,7 @@ syn keyword ngxLuaDirective rewrite_by_lua_file
 syn keyword ngxLuaDirective set_by_lua_file
 syn keyword ngxLuaDirective balancer_by_lua_file
 syn keyword ngxLuaDirective ssl_certificate_by_lua_file
+syn keyword ngxLuaDirective ssl_client_hello_by_lua_file
 syn keyword ngxLuaDirective ssl_session_fetch_by_lua_file
 syn keyword ngxLuaDirective ssl_session_store_by_lua_file
 syn keyword ngxLuaDirective exit_worker_by_lua_file
@@ -58,6 +59,7 @@ syn keyword orDirectiveBlock log_by_lua_block contained
 syn keyword orDirectiveBlock rewrite_by_lua_block contained
 syn keyword orDirectiveBlock balancer_by_lua_block contained
 syn keyword orDirectiveBlock ssl_certificate_by_lua_block contained
+syn keyword orDirectiveBlock ssl_client_hello_by_lua_block contained
 syn keyword orDirectiveBlock ssl_session_fetch_by_lua_block contained
 syn keyword orDirectiveBlock ssl_session_store_by_lua_block contained
 syn keyword orDirectiveBlock set_by_lua_block contained
@@ -81,6 +83,7 @@ syn keyword ngxLuaDirective lua_socket_keepalive_timeout
 syn keyword ngxLuaDirective lua_socket_log_errors
 syn keyword ngxLuaDirective lua_capture_error_log
 syn keyword ngxLuaDirective lua_ssl_ciphers
+syn keyword ngxLuaDirective lua_ssl_conf_command
 syn keyword ngxLuaDirective lua_ssl_crl
 syn keyword ngxLuaDirective lua_ssl_protocols
 syn keyword ngxLuaDirective lua_ssl_trusted_certificate

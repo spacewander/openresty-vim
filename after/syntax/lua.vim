@@ -146,6 +146,7 @@ syn match luaFunc   /\<ngx\.req\.socket\>/
 syn match luaFunc   /\<ngx\.req\.start_time\>/
 syn match luaFunc   /\<ngx\.resp\.get_headers\>/
 syn match luaFunc   /\<ngx\.re\.sub\>/
+syn match luaFunc   /\<ngx\.run_worker_thread\>/
 syn match luaFunc   /\<ngx\.say\>/
 syn match luaFunc   /\<ngx\.send_headers\>/
 syn match luaFunc   /\<ngx\.sha1_bin\>/

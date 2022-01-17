@@ -9,7 +9,7 @@ This little plugin offers:
 
 #### Support version
 
-This plugin supports OpenResty v1.19.9.
+This plugin supports OpenResty v1.21.4.
 
 #### How to use
 
