@@ -22,7 +22,7 @@ If Vim doesn't recognize the file type, you could add this to your `.vimrc`:
 autocmd BufRead,BufNewFile pattern_matched_your_file(s) set filetype=nginx
 ```
 
-For example, `autocmd BufRead,BufNewFile nginx_*.conf.tpl set filetype=nginx`.
+For example, `autocmd BufRead,BufNewFile nginx_*.conf.tpl set filetype=nginx` or `autocmd BufRead,BufNewFile * if match(getline(1),"nginx") >=0 | set filetype=nginx | endif`
 
 To complete the directives, type part of the word and then type `Ctrl+x Ctrl+o` to trigger it.
 If you are using [YouCompleteMe](https://github.com/Valloric/YouCompleteMe), set `let g:ycm_seed_identifiers_with_syntax = 1` in your `.vimrc`.
