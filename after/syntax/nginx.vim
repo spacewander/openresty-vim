@@ -42,6 +42,7 @@ syn keyword ngxLuaDirective init_worker_by_lua_file
 syn keyword ngxLuaDirective log_by_lua_file
 syn keyword ngxLuaDirective rewrite_by_lua_file
 syn keyword ngxLuaDirective set_by_lua_file
+syn keyword ngxLuaDirective preread_by_lua_file
 syn keyword ngxLuaDirective balancer_by_lua_file
 syn keyword ngxLuaDirective ssl_certificate_by_lua_file
 syn keyword ngxLuaDirective ssl_client_hello_by_lua_file
@@ -63,6 +64,7 @@ syn keyword orDirectiveBlock ssl_client_hello_by_lua_block contained
 syn keyword orDirectiveBlock ssl_session_fetch_by_lua_block contained
 syn keyword orDirectiveBlock ssl_session_store_by_lua_block contained
 syn keyword orDirectiveBlock set_by_lua_block contained
+syn keyword orDirectiveBlock preread_by_lua_block contained
 syn keyword orDirectiveBlock exit_worker_by_lua_block contained
 
 syn keyword ngxLuaDirective lua_use_default_type
