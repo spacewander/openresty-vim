@@ -90,6 +90,7 @@ syn match luaFunc   /\<ngx\.ctx\(\.\w\+\)\?\>/
 syn match luaFunc   /\<ngx\.header/
 syn match luaFunc   /\<ngx\.decode_args\>/
 syn match luaFunc   /\<ngx\.decode_base64\>/
+syn match luaFunc   /\<ngx\.decode_base64mime\>/
 syn match luaFunc   /\<ngx\.encode_args\>/
 syn match luaFunc   /\<ngx\.encode_base64\>/
 syn match luaFunc   /\<ngx\.eof\>/
